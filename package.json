@@ -19,7 +19,6 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "axios": "^1.7.2",
-    "bluetooth-hci-socket": "^0.5.1",
     "bluetooth-serial-port": "^3.0.2",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",

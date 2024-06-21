@@ -139,7 +139,7 @@ const BluetoothDataReading = ({ route }) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Bluetooth Data Dashboard</Text>
+        <Text style={styles.headerText}>DATA</Text>
       </View>
     
       <TouchableOpacity style={styles.refreshButton} onPress={handleRefresh}>
@@ -264,6 +264,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
     color: '#555',
+    fontWeight:600
   },
   noDataText: {
     fontSize: 16,

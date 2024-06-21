@@ -8,12 +8,23 @@ const FarmerIDScreen = ({ navigation }) => {
   const [error, setError] = useState('');
 
   const handleContinue = () => {
+    const farmerIDRegex = /^\d{6}$/; // Regular expression for exactly six digits
+
     if (!farmerID) {
       setError('Farmer ID is required');
+    } else if (!farmerIDRegex.test(farmerID)) {
+      setError('Farmer ID must be exactly six digits');
     } else {
       setError('');
       // Navigate to the next screen with farmerID
       navigation.navigate('ImageCapture', { farmerID, ipAddress });
+    }
+  };
+
+  const handleChangeText = (text) => {
+    // Allow only numeric input
+    if (/^\d*$/.test(text)) {
+      setFarmerID(text);
     }
   };
 
@@ -23,8 +34,10 @@ const FarmerIDScreen = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Enter Farmer ID"
-        onChangeText={setFarmerID}
+        onChangeText={handleChangeText}
         value={farmerID}
+        keyboardType="numeric" // Set keyboard type to numeric
+        maxLength={6} // Limit input length to 6 characters
       />
       <Button title="Continue" onPress={handleContinue} />
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
